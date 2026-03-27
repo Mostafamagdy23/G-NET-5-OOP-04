@@ -81,6 +81,23 @@ class Ticket
         }
 
         #endregion
+
+
+
+        #region StandardTicket Class
+
+        class StandardTicket : Ticket
+        {
+            public string SeatNumber { get; set; }
+
+            public override void PrintTicket()
+            {
+                base.PrintTicket();
+                Console.WriteLine($"  Seat: {SeatNumber}");
+            }
+        }
+
+        #endregion
     }
 }
 

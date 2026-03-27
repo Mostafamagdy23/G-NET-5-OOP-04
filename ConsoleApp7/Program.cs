@@ -138,7 +138,52 @@ class Ticket
             }
         }
 
-        #endregion 
+        #endregion
+
+
+        #region Cinema Class
+
+        class Cinema
+        {
+            private Ticket[] tickets = new Ticket[10];
+            private int count = 0;
+
+            public void OpenCinema()
+            {
+                Console.WriteLine("========== Cinema Opened ==========");
+                Console.WriteLine("Projector started.\n");
+            }
+
+            public void CloseCinema()
+            {
+                Console.WriteLine("\n========== Cinema Closed ==========");
+                Console.WriteLine("Projector stopped.");
+            }
+
+            public void AddTicket(Ticket t)
+            {
+                tickets[count++] = t;
+            }
+
+            public void PrintAllTickets()
+            {
+                Console.WriteLine("\n========== All Tickets ==========");
+
+                for (int i = 0; i < count; i++)
+                {
+                    tickets[i].PrintTicket();
+                }
+            }
+
+            // Static Method
+            public static void ProcessTicket(Ticket t)
+            {
+                Console.WriteLine("\n========== Process Single Ticket ==========");
+                t.PrintTicket();
+            }
+        }
+
+        #endregion
 
     }
 }

@@ -185,6 +185,68 @@ class Ticket
 
         #endregion
 
+
+
+
+        #region Main Program
+
+        class MainProgram
+        {
+            static void Main()
+            {
+                Cinema cinema = new Cinema();
+
+                cinema.OpenCinema();
+
+                Console.WriteLine("========== SetPrice Test ==========");
+
+                // Standard Ticket
+                StandardTicket t1 = new StandardTicket()
+                {
+                    TicketId = 1,
+                    MovieName = "Inception",
+                    SeatNumber = "A-5"
+                };
+
+                t1.SetPrice(150);
+
+                // VIP Ticket
+                VIPTicket t2 = new VIPTicket()
+                {
+                    TicketId = 2,
+                    MovieName = "Avengers",
+                    LoungeAccess = true,
+                    ServiceFee = 50
+                };
+
+                t2.SetPrice(100, 1.5m);
+
+                // IMAX Ticket
+                IMAXTicket t3 = new IMAXTicket()
+                {
+                    TicketId = 3,
+                    MovieName = "Dune",
+                    Is3D = false
+                };
+
+                t3.SetPrice(180);
+
+                // Add Tickets
+                cinema.AddTicket(t1);
+                cinema.AddTicket(t2);
+                cinema.AddTicket(t3);
+
+                // Print All
+                cinema.PrintAllTickets();
+
+                // Process Single Ticket
+                Cinema.ProcessTicket(t2);
+
+                cinema.CloseCinema();
+            }
+        }
+
+        #endregion
     }
 }
 

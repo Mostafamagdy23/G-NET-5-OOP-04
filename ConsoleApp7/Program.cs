@@ -98,6 +98,28 @@ class Ticket
         }
 
         #endregion
+
+
+
+        #region VIPTicket Class
+
+        class VIPTicket : Ticket
+        {
+            public bool LoungeAccess { get; set; }
+            public decimal ServiceFee { get; set; }
+
+            public override void PrintTicket()
+            {
+                base.PrintTicket();
+
+                string lounge = LoungeAccess ? "Yes" : "No";
+
+                Console.WriteLine($"  Lounge: {lounge} | Service Fee: {ServiceFee} EGP");
+            }
+        }
+
+        #endregion 
+
     }
 }
 

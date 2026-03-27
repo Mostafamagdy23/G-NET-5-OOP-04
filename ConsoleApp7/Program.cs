@@ -118,6 +118,26 @@ class Ticket
             }
         }
 
+        #endregion
+
+
+
+        #region IMAXTicket Class
+
+        class IMAXTicket : Ticket
+        {
+            public bool Is3D { get; set; }
+
+            public override void PrintTicket()
+            {
+                base.PrintTicket();
+
+                string imax = Is3D ? "Yes" : "No";
+
+                Console.WriteLine($"  IMAX 3D: {imax}");
+            }
+        }
+
         #endregion 
 
     }

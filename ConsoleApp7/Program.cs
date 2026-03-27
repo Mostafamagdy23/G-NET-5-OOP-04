@@ -3,7 +3,8 @@
     internal class Program
     {
         static void Main(string[] args)
-        {
+        { 
+        }
             #region Part 01 - Theoretical Answers
 
             // Q1: Difference between static binding and dynamic binding?
@@ -44,6 +45,42 @@
             // Used to call base class method.
 
             #endregion
+
+
+            #region Ticket Base Class
+
+class Ticket
+        {
+            public int TicketId { get; set; }
+            public string MovieName { get; set; }
+            public decimal Price { get; set; }
+
+            public decimal PriceAfterTax
+            {
+                get { return Price * 1.14m; }
+            }
+
+            // Method Overloading
+            public void SetPrice(decimal price)
+            {
+                Price = price;
+                Console.WriteLine($"Setting price directly: {price}");
+            }
+
+            public void SetPrice(decimal basePrice, decimal multiplier)
+            {
+                Price = basePrice * multiplier;
+                Console.WriteLine($"Setting price with multiplier: {basePrice} x {multiplier} = {Price}");
+            }
+
+            // Virtual Method
+            public virtual void PrintTicket()
+            {
+                Console.WriteLine($"Ticket #{TicketId} | {MovieName} | Price: {Price} EGP | After Tax: {PriceAfterTax:F2} EGP");
+            }
         }
+
+        #endregion
     }
 }
+
